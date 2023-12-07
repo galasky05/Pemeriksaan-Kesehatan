@@ -2,14 +2,15 @@
 using namespace std;
     
 void tampilkanMenu() {
-    cout << "============================\n";
-    cout << "Selamat datang di Fit App!\n";
-    cout << "Silakan pilih salah satu opsi berikut:\n";
+    cout << "========================================================================\n";
+    cout << "                       SELAMAT DATANG DI PROGRAM KAMI                   \n";
+    cout << "                        PROGRAM PENGINGAT KESEHATAN                     \n";
+    cout << "========================================================================\n\n";
+    
     cout << "1. Cek tekanan darah\n";
     cout << "2. Hitung kalori\n";
     cout << "3. Cek tinggi badan\n";
     cout << "4. Keluar\n";
-    cout << "============================" << endl << endl;
 }
 
 int main() {
