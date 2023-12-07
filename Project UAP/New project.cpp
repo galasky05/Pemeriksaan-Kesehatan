@@ -5,12 +5,23 @@ void tampilkanMenu() {
     cout << "========================================================================\n";
     cout << "                       SELAMAT DATANG DI PROGRAM KAMI                   \n";
     cout << "                        PROGRAM PENGINGAT KESEHATAN                     \n";
-    cout << "========================================================================\n\n";
+    cout << "========================================================================\n";
     
     cout << "1. Cek tekanan darah\n";
     cout << "2. Hitung kalori\n";
-    cout << "3. Cek tinggi badan\n";
+    cout << "3. Cek berat badan\n";
     cout << "4. Keluar\n";
+}
+
+void tanyaLanjut() {
+    char jawaban;
+    cout << "\nApakah Anda ingin melanjutkan? (y/t) : "; 
+    cin >> jawaban;
+
+    if (jawaban != 'y' && jawaban != 'Y') {
+        cout << "Terima kasih telah cek kesehatan di program kami, semoga membantu dan sampai jumpa lagi :)";
+        exit(0);
+    }
 }
 
 int main() {
@@ -25,44 +36,44 @@ int main() {
         
         tampilkanMenu();
         
-        cout << "Masukkan pilihan Anda : ";
+        cout << "\nMasukkan pilihan Anda : ";
         cin >> pilihan;
 
         switch (pilihan) {
             
             case 1:
-                cout << "Anda memilih untuk cek tekanan darah\n";
-                cout << "Masukkan nilai tekanan darah sistolik (atas) : ";
+                cout << "\n=====ANDA MEMILIH UNTUK CEK TEKANAN DARAH=====\n";
+                cout << "\nMasukkan nilai tekanan darah sistolik (atas) : ";
                 cin >> sistolik;
 
                 cout << "Masukkan nilai tekanan darah diastolik (bawah) : ";
                 cin >> diastolik;
 
                 if (sistolik < 90 && diastolik < 60) {
-                    cout << "Tekanan darah rendah\n";
+                    cout << "\nTEKANAN DARAH RENDAH\n";
                 
                 } else if ((sistolik >= 90 && sistolik <= 120) && (diastolik >= 60 && diastolik <= 80)) {
-                    cout << "Tekanan darah normal\n";
+                    cout << "\nTEKANAN DARAH NORMAL\n";
                 
                 } else if ((sistolik > 120 && sistolik <= 140) || (diastolik > 80 && diastolik <= 90)) {
-                    cout << "Tekanan darah tinggi (prehypertension)\n";
+                    cout << "\nTEKANAN DARAH TINGGI (PREHYPERTENSION)\n";
                 
                 } else if ((sistolik > 140 && sistolik <= 160) || (diastolik > 90 && diastolik <= 100)) {
-                    cout << "Tekanan darah tinggi tahap 1\n";
+                    cout << "\nTEKANAN DARAH TINGGI TAHAP 1\n";
                 
                 } else if (sistolik > 160 || diastolik > 100) {
-                    cout << "Tekanan darah tinggi tahap 2\n";
+                    cout << "\nTEKANAN DARAH TINGGI TAHAP 2\n";
                 
                 } else {
-                    cout << "Masukkan nilai tekanan darah yang valid\n";
+                    cout << "\nMasukkan nilai tekanan darah yang valid\n";
                 }
                 
                 break;
             
             
             case 2:
-                cout << "Anda memilih untuk menghitung kalori\n";
-                cout << "Masukkan jenis makanan : ";
+                cout << "\n===============ANDA MEMILIH UNTUK MENGHITUNG KALORI===============\n";
+                cout << "\nMasukkan jenis makanan : ";
                 cin >> jenisMakanan;
 
                 cout << "Masukkan jumlah " << jenisMakanan << " (dalam satuan yang sesuai) : ";
@@ -73,7 +84,7 @@ int main() {
 
                 totalKalori = jumlahMakanan * kaloriPerSatuan;
 
-                cout << "Total kalori untuk " << jumlahMakanan << " " << jenisMakanan << " adalah " << totalKalori << " kalori." << std::endl;
+                cout << "\nTotal kalori untuk " << jumlahMakanan << " " << jenisMakanan << " adalah " << totalKalori << " kalori." << std::endl;
 
                 if (totalKalori < 500) {
                     cout << "Ini adalah makanan ringan dengan sedikit kalori, Bagus untuk camilan!" << endl;
@@ -89,8 +100,8 @@ int main() {
 
     
             case 3:
-                cout << "Anda memilih untuk cek tinggi badan\n";
-                cout << "Masukkan tinggi badan Anda (cm) : ";
+                cout << "\n=====ANDA MEMILIH UNTUK CEK BERAT BADAN=====\n";
+                cout << "\nMasukkan tinggi badan Anda (cm) : ";
                 cin >> tinggi;
 
                 beratIdeal = (tinggi - 100) - ((tinggi - 100) * 0.1);
@@ -101,14 +112,16 @@ int main() {
                         
                         
             case 4:
-                cout << "Terima kasih, sampai jumpa!";
+                cout << "Terima kasih telah cek kesehatan di program kami, semoga membantu dan sampai jumpa lagi :)";
                 break;
                         
                                       
             default:
                 cout << "Pilihan tidak valid. Silakan pilih lagi.\n";
-                    }
-                } while (pilihan != 4);
+                    } 
+                  
+                  tanyaLanjut();
+                } while (true);
 
                 return 0;
             }
